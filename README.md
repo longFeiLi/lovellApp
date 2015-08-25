@@ -1,12 +1,2 @@
-# react-lead
-
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
-
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
+用Angular给Echarts 添加备注功能 
+用grunt 搭建  后台用node 查询mysql数据库
