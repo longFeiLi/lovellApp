@@ -1,4 +1,4 @@
-<div ng-controller="remarkEchartsCtrl" class="container">
+<div ng-controller="bMapController" class="container">
 	<div class="row">
 		<div class="col-md-3 col-sm-4">
 			<div class="panel-group docs-nav">
@@ -12,8 +12,8 @@
 					</div>
 					<div class="panel-body">
 						<ul class="nav">
-							<li class="active">
-								<a href="#">echarts</a>
+							<li>
+								<a ui-sref="chartRemark">echarts</a>
 							</li>
 							<li>
 								<a href="/docs/encoding">html5</a>
@@ -48,11 +48,11 @@
 		<!--右边 -->
 		<div class="col-md-9">
 			<div class="docs-heading">
-				<h1>myCharts</h1>
-				<h2>鼠标右键备注功能</h2>
+				<h1>百度地图扩展</h1>
+				<h2>百度地图加上Echarts</h2>
 			</div>
 
-			<div id="mychart" style="height:400px;"></div>
+			<div id="bMapChart" style="height:400px;"></div>
 		</div>
 
 	</div>
