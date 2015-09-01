@@ -1,4 +1,4 @@
-<div ng-controller="mainController" class="container">
+<div ng-controller="ngGridController" class="container">
 	<div class="row">
 		<div class="col-md-3 col-sm-4">
 			<div class="panel-group docs-nav">
@@ -12,13 +12,13 @@
 					</div>
 					<div class="panel-body">
 						<ul class="nav">
-							<li>
-								<a ui-sref="chartRemark">echarts</a>
+							<li class="active">
+								<a href="#">echarts</a>
 							</li>
 							<li>
 								<a ui-sref="ngGrid">ng-Grid</a>
 							</li>
-							<li class="active">
+							<li >
 								<a href="/docs/page-properties">node</a>
 							</li>
 							<li>
@@ -48,13 +48,11 @@
 		<!--右边 -->
 		<div class="col-md-9">
 			<div class="docs-heading">
-				<h1>Integration</h1>
-				<h2>Character encoding</h2>
+				<h1>ng-Grid</h1>
+				<h2>表格功能</h2>
 			</div>
-			
-
+			<div class="gridStyle"  ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav > </div>
 		</div>
-	</div>
 
-</div>
+	</div>
 </div>

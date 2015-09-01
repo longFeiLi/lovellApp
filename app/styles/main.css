@@ -166,4 +166,14 @@ body {
 .txt-mark{font-size: 12px;padding: 4px 0px}
 .posi-rel{position: relative;padding-bottom: 5px;}
 
+/*表格 u- grid */
+.gridStyle{
+  border:1px solid rab(212,212,212);
+  width: 400px;
+  height: 300px;
+}
 
+.green {
+    background-color: green;
+    color: white;
+}

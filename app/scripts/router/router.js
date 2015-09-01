@@ -43,7 +43,20 @@
            }
 
          }
-       });
+       })
+       .state('ngGrid', {
+         url: '/ngGrid',
+         views: {
+           'view': {
+             templateUrl: 'views/angular/ngGrid.html',
+             conrroller: 'ngGridController'
+           }
+
+         }
+       })
+
+
+       ;
 
 
 

@@ -5,7 +5,8 @@
 (function(window, undefined) {
 	'use strict';
 	angular.module('reactLead.controllers', [
-		'controller.chartsModule'
+		'controller.chartsModule',
+		'controller.angularMode'
 	]).controller('mainController', mainController);
 
 	function mainController() {

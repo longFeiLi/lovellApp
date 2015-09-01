@@ -13,9 +13,12 @@ angular
     'ngCookies',
     'ui.router',
     'restangular',
+    'ui.grid',
+    'ui.grid.edit',
+    'ui.grid.cellNav',
     'reactLead.controllers',
     'reactLead.services'
   ])
-  .run(function () {
+  .run(function() {
 
   });
