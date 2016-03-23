@@ -152,6 +152,21 @@ module.exports = function(grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
+     //less插件配置
+    less: {
+        main: {
+            expand: true,
+            src: ['less/*.less'],
+            dest: 'dist',
+            ext: '.css'
+        },
+        dev: {
+            options: {
+                compress: true,
+                yuicompress:false
+            }
+        }
+    },
 
     // Empties folders to start fresh
     clean: {

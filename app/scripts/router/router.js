@@ -54,6 +54,17 @@
 
          }
        })
+      .state('login', {
+         url: '/login',
+         views: {
+           'view': {
+             templateUrl: 'views/login.html',
+             // conrroller: 'ngGridController'
+           }
+
+         }
+       })
+
 
 
        ;

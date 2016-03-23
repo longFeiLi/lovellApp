@@ -13,54 +13,63 @@
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
+  <title>Merlin</title>
+  <link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:300,600">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/animate.min.css">
+  <link rel="stylesheet" href="styles/font-awesome.min.css">
   <!-- endbuild -->
 </head>
 <body ng-app="reactLeadApp">
-  <!--[if lte IE 8]>
-  <p class="browsehappy">
-    You are using an <strong>outdated</strong>
-    browser. Please
-    <a href="http://browsehappy.com/">upgrade your browser</a>
-    to improve your experience.
-  </p>
-  <![endif]-->
+  <div class="loader">
+    <div class="fading-line"></div>
+  </div>
 
-  <!-- Add your site or application content here -->
-  <div class="header">
-    <nav class="navbar navbar-inverse navbar-static-top">
+  <section id="home" class="page">
+    <div class="container">
+      <div class="content cover text-center">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="animated " data-animation="fadeInDown" data-delay="300">We Are Merlin</h1>
+            <a class="btn btn-blue nav-external animated " data-animation="fadeIn" data-delay="900" href="#services">Find more</a>
+            <h3 class="animated " data-animation="fadeIn" data-delay="600">We Have Made A Lot Of Friends.</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="navbar-top">
+    <nav class="navbar navbar-default navbar-static" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand nav-external" href="#home">Merlin</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
             <li class="active">
-              <a ui-sref="main">Home</a>
+              <a ui-sref="main" >Home</a>
             </li>
             <li>
-              <a ui-sref="contact">Contact</a>
+              <a href="#services">Services</a>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="#">Action</a>
-                </li>
-                <li>
-                  <a href="#">Another action</a>
-                </li>
-
-              </ul>
+            <li>
+              <a href="#work">Work</a>
+            </li>
+            <li>
+              <a href="#clients">Clients</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -68,9 +77,53 @@
     </nav>
   </div>
 
+  <!-- Add your site or application content here -->
+  <!-- <div class="header">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project name</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a ui-sref="main">Home</a>
+          </li>
+          <li>
+            <a ui-sref="contact">Contact</a>
+          </li>
+          <li>
+            <a ui-sref="longfei">longfei</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">Action</a>
+              </li>
+              <li>
+                <a href="#">Another action</a>
+              </li>
 
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+-->
 <!--添加备注功能-->
-<div  id="RemarkDiv0" class="mark-panel">
+<!-- <div  id="RemarkDiv0" class="mark-panel">
   <div class="posi-rel">
     <div class="txt-mark">X轴:09/02</div>
     <span class="close-div glyphicon glyphicon-remove"></span>
@@ -84,20 +137,10 @@
     <input hidden=true type="text" name="titleName" id="titleName"  />
     <input hidden=true type="text" name="timelineData" id="timelineData" />
   </div>
-</div>
+</div> -->
 
+<div ui-view="view"></div>
 
-  <div ui-view="view"></div>
-
-  <!--     <div class="footer">
-  <div class="container">
-    <p>
-      <span class="glyphicon glyphicon-heart"></span>
-      from the Yeoman team
-    </p>
-  </div>
-</div>
--->
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -117,6 +160,15 @@
 <!-- 百度api -->
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
 <script src="scripts/controllers/echarts/bMapExtension.js"></script>
+<script src="scripts/js/isotope.pkgd.min.js"></script>
+<script src="scripts/js/imagesloaded.min.js"></script>
+<script src="scripts/js/jquery.scrollTo.min.js"></script>
+<script src="scripts/js/jquery.nav.min.js"></script>
+<script src="scripts/js/jquery.appear.min.js"></script>
+<script src="scripts/js/twitterFetcher.min.js"></script>
+<script src="scripts/js/script.js"></script>
+
+
 
 <script src="scripts/app.js"></script>
 <script type="text/javascript" src="scripts/router/router.js"></script>
@@ -125,8 +177,6 @@
 <script src="scripts/controllers/echarts/remarkEchartsCtrl.js"></script>
 <script src="scripts/controllers/echarts/bMapController.js"></script>
 <script src="scripts/controllers/angularMode/ngGridController.js"></script>
-
-
 <script type="text/javascript" src="scripts/services/commonService.js"></script>
 <script type="text/javascript" src="scripts/services/remarkService.js"></script>
 

@@ -12,7 +12,7 @@ function bMapController() {
 	var BMapExt1 = new BMapExt($('#bMapChart')[0], BMap, echarts, {
 		enableMapClick: false
 	});
-	console.info(BMapExt1);
+	console.info(BMapExt);
 	var map = BMapExt1.getMap();
 	var container = BMapExt1.getEchartsContainer();
 
