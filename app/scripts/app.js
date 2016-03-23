@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var App=angular
   .module('reactLeadApp', [
     'ngCookies',
     'ui.router',
@@ -18,7 +18,8 @@ angular
     'ui.grid.cellNav',
     'reactLead.controllers',
     'reactLead.services'
-  ])
-  .run(function() {
+  ]);
+
+  App.run(function() {
 
   });
