@@ -1,11 +1,12 @@
-本地重构了网站首页
+# apple
 
-将更加把内容突出显示
-新增功能
-   用户发帖回帖 
-   技术展示模块页面
-   
-2016年03月23日
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.12.1.
 
+## Build & development
 
-用grunt 搭建  后台用node 查询mysql数据库
+Run `grunt` for building and `grunt serve` for preview.
+
+## Testing
+
+Running `grunt test` will run the unit tests with karma.

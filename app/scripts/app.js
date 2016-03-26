@@ -2,24 +2,40 @@
 
 /**
  * @ngdoc overview
- * @name reactLeadApp
+ * @name appleApp
  * @description
- * # reactLeadApp
+ * # appleApp
  *
  * Main module of the application.
  */
-var App=angular
-  .module('reactLeadApp', [
+angular
+  .module('appleApp', [
     'ngCookies',
+    'ngRoute',
     'ui.router',
-    'restangular',
-    'ui.grid',
-    'ui.grid.edit',
-    'ui.grid.cellNav',
-    'reactLead.controllers',
-    'reactLead.services'
-  ]);
+    'ngTouch'
+  ])
+  .config(function ($stateProvider,$urlRouterProvider) {
 
-  App.run(function() {
+     $urlRouterProvider.otherwise('/main');
+     //路由配置
+     $stateProvider.state('main', {
+         url: '/main',
+         views: {
+           'view': {
+             templateUrl: 'views/index.html'
+           }
+         }
+     })
+      .state('contact', {
+         url: '/contact',
+         views: {
+           'view': {
+             templateUrl: 'views/contact.html',
+             controller: 'mainController'
 
+           }
+         }
+       });
+    // $locationProvider.html5Mode(true);
   });

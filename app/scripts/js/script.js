@@ -4,15 +4,15 @@ function initNavbar() {
     var scrollOffset = 50;
     var easing = 'swing';
 
-    $('#navbar-top .navbar-default ul.nav').onePageNav({
-        currentClass: 'active',
-        changeHash: false,
-        scrollSpeed: scrollSpeed,
-        scrollOffset: scrollOffset,
-        scrollThreshold: 0.5,
-        filter: ':not(.external)',
-        easing: easing
-    });
+    // $('#navbar-top .navbar-default ul.nav').onePageNav({
+    //     currentClass: 'active',
+    //     changeHash: false,
+    //     scrollSpeed: scrollSpeed,
+    //     scrollOffset: scrollOffset,
+    //     scrollThreshold: 0.5,
+    //     filter: ':not(.external)',
+    //     easing: easing
+    // });
 
     $('.nav-external').click(function (e) {
         e.preventDefault();
@@ -21,11 +21,11 @@ function initNavbar() {
         }, scrollSpeed, easing);
     });
 
-    $('#navbar-top .navbar-default').affix({
-        offset: {
-            top: $('#home').height()
-        }
-    });
+    // $('#navbar-top .navbar-default').affix({
+    //     offset: {
+    //         top: $('#home').height()
+    //     }
+    // });
 }
 function initPortfolio () {
     var portfolio = $('#portfolio');
@@ -77,15 +77,11 @@ function initAnimations() {
 	});
 }
 
-function initTwitterFeed() {
-    /* More about fetch params on http://www.jasonmayes.com/projects/twitterApi */
-    twitterFetcher.fetch('500674157688782849', '', 1, true, false, false, '', true, handleTweets, false);
-}
+
 $(document).ready(function () {
     initNavbar();
     initPortfolio();
     initAnimations();
-    initTwitterFeed();
 });
 $(window).load(function () {
     $(".loader .fading-line").fadeOut();

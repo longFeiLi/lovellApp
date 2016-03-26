@@ -1,4 +1,4 @@
-// Generated on 2015-07-28 using generator-angular 0.12.1
+// Generated on 2016-03-26 using generator-angular 0.12.1
 'use strict';
 
 // # Globbing
@@ -7,7 +7,7 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -24,8 +24,6 @@ module.exports = function(grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
-
-   grunt.loadNpmTasks('grunt-connect-proxy');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -50,9 +48,9 @@ module.exports = function(grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
-      styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+      compass: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['compass:server', 'autoprefixer:server']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -77,42 +75,29 @@ module.exports = function(grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
-      proxies: [{
-        context: ['/reactLead'],
-        host: 'localhost',
-        port: 18000
-      }],
       livereload: {
         options: {
           open: true,
-          base: ['.tmp', '<%= yeoman.app %>'],
-          middleware: function(connect, options) {
-            if (!Array.isArray(options.base)) {
-              options.base = [options.base];
-            }
-            // 设置代理
-            var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
-
-            // 代理每个base目录中的静态文件
-            options.base.forEach(function(base) {
-              middlewares.push(connect.static(base));
-            });
-            middlewares.push(connect().use(
-              '/bower_components',
-              connect.static('./bower_components')
-            ));
-            // // 让目录可被浏览（即：允许枚举文件）
-            // var directory = options.directory || options.base[options.base.length - 1];
-            // middlewares.push(connect.directory(directory));
-            // console.log(middlewares);
-            return middlewares;
+          middleware: function (connect) {
+            return [
+              connect.static('.tmp'),
+              connect().use(
+                '/bower_components',
+                connect.static('./bower_components')
+              ),
+              connect().use(
+                '/app/styles',
+                connect.static('./app/styles')
+              ),
+              connect.static(appConfig.app)
+            ];
           }
         }
       },
       test: {
         options: {
           port: 9001,
-          middleware: function(connect) {
+          middleware: function (connect) {
             return [
               connect.static('.tmp'),
               connect.static('test'),
@@ -151,21 +136,6 @@ module.exports = function(grunt) {
         },
         src: ['test/spec/{,*/}*.js']
       }
-    },
-     //less插件配置
-    less: {
-        main: {
-            expand: true,
-            src: ['less/*.less'],
-            dest: 'dist',
-            ext: '.css'
-        },
-        dev: {
-            options: {
-                compress: true,
-                yuicompress:false
-            }
-        }
     },
 
     // Empties folders to start fresh
@@ -213,22 +183,55 @@ module.exports = function(grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath: /\.\.\//
+        ignorePath:  /\.\.\//
       },
       test: {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
-        ignorePath: /\.\.\//,
-        fileTypes: {
+        ignorePath:  /\.\.\//,
+        fileTypes:{
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-            detect: {
-              js: /'(.*\.js)'/gi
-            },
-            replace: {
-              js: '\'{{filePath}}\','
+              detect: {
+                js: /'(.*\.js)'/gi
+              },
+              replace: {
+                js: '\'{{filePath}}\','
+              }
             }
           }
+      },
+      sass: {
+        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        ignorePath: /(\.\.\/){1,2}bower_components\//
+      }
+    },
+
+    // Compiles Sass to CSS and generates necessary files if requested
+    compass: {
+      options: {
+        sassDir: '<%= yeoman.app %>/styles',
+        cssDir: '.tmp/styles',
+        generatedImagesDir: '.tmp/images/generated',
+        imagesDir: '<%= yeoman.app %>/images',
+        javascriptsDir: '<%= yeoman.app %>/scripts',
+        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        importPath: './bower_components',
+        httpImagesPath: '/images',
+        httpGeneratedImagesPath: '/images/generated',
+        httpFontsPath: '/styles/fonts',
+        relativeAssets: false,
+        assetCacheBuster: false,
+        raw: 'Sass::Script::Number.precision = 10\n'
+      },
+      dist: {
+        options: {
+          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+        }
+      },
+      server: {
+        options: {
+          sourcemap: true
         }
       }
     },
@@ -276,9 +279,7 @@ module.exports = function(grunt) {
           '<%= yeoman.dist %>/styles'
         ],
         patterns: {
-          js: [
-            [/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']
-          ]
+          js: [[/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']]
         }
       }
     },
@@ -351,7 +352,7 @@ module.exports = function(grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'reactLeadApp',
+          module: 'appleApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -403,15 +404,15 @@ module.exports = function(grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
+          cwd: '.',
+          src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
           dest: '<%= yeoman.dist %>'
         }]
       },
       styles: {
         expand: true,
         cwd: '<%= yeoman.app %>/styles',
-        dest: '.tmp/styles/',
+        dest: ['.tmp/styles/','styles/'],
         src: '{,*/}*.css'
       }
     },
@@ -419,13 +420,13 @@ module.exports = function(grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'copy:styles'
+        'compass:server'
       ],
       test: [
-        'copy:styles'
+        'compass'
       ],
       dist: [
-        'copy:styles',
+        'compass:dist',
         'imagemin',
         'svgmin'
       ]
@@ -441,7 +442,7 @@ module.exports = function(grunt) {
   });
 
 
-  grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
+  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
@@ -451,13 +452,12 @@ module.exports = function(grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
-      'configureProxies:connect',
       'connect:livereload',
       'watch'
     ]);
   });
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
+  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
   });
@@ -470,6 +470,7 @@ module.exports = function(grunt) {
     'connect:test',
     'karma'
   ]);
+
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',

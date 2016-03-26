@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name appleApp.controller:MainCtrl
+ * @name appleApp.controller:AboutCtrl
  * @description
- * # MainCtrl
+ * # AboutCtrl
  * Controller of the appleApp
  */
 angular.module('appleApp')
-  .controller('MainCtrl', function () {
+  .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
