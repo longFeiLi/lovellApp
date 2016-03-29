@@ -1,17 +1,21 @@
-'use strict';
-
-/**
- * @ngdoc function
- * @name appleApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the appleApp
+/*主模块controller 入口
+ * 注入图表子模块
+ * 
  */
-angular.module('appleApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+(function(window, undefined) {
+	'use strict';
+	angular.module('longll.controllers', [
+		'controller.chartsModule',
+		// 'controller.angularMode'
+	]).controller('mainController', mainController);
+    
+    mainController.$inject = ['$scope', '$location'];
+	function mainController($scope,$location) {
+		  $scope.isActive = function(route) {
+		    return route === $location.path();
+		  };
+		
+	}
+
+
+})(window);

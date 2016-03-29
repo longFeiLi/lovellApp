@@ -13,7 +13,8 @@ angular
     'ngCookies',
     'ngRoute',
     'ui.router',
-    'ngTouch'
+    'ngTouch',
+    'longll.controllers'
   ])
   .config(function ($stateProvider,$urlRouterProvider) {
 
@@ -32,8 +33,6 @@ angular
          views: {
            'view': {
              templateUrl: 'views/contact.html',
-             controller: 'mainController'
-
            }
          }
        });
