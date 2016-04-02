@@ -8,15 +8,16 @@
  *
  * Main module of the application.
  */
-angular
+var App=angular
   .module('appleApp', [
     'ngCookies',
     'ngRoute',
     'ui.router',
     'ngTouch',
     'longll.controllers'
-  ])
-  .config(function ($stateProvider,$urlRouterProvider) {
+  ]);
+
+  App.config(function ($stateProvider,$urlRouterProvider) {
 
      $urlRouterProvider.otherwise('/main');
      //路由配置
@@ -38,3 +39,7 @@ angular
        });
     // $locationProvider.html5Mode(true);
   });
+
+App.config(['$locationProvider', function($locationProvider) {  
+  $locationProvider.html5Mode(true);  
+}]);  
