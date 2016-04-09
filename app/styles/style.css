@@ -20,14 +20,21 @@ a:focus {
 .hiding { opacity: 0 }
 .showing { opacity: 1 }
 .img-rounded {
-  border-radius: 8px;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
 }
 .btn {
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
-  border-radius: 2px;
-  transition: all .2s;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  -webkit-transition: all .2s;
+     -moz-transition: all .2s;
+      -ms-transition: all .2s;
+          transition: all .2s;
 }
 .btn-blue {
   color: #fff;
@@ -70,7 +77,7 @@ a:focus {
   width: 40px;
   height: 40px;
   margin: -20px 0 0 -20px;
-  background-image: url(/images/fading-line.gif);
+  background-image: url(../img/fading-line.gif);
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -79,7 +86,9 @@ a:focus {
   margin-bottom: 0;
   background-color: #fff;
   border-top: 0;
-  border-radius: 0;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
 }
 .navbar-default .navbar-brand {
   font-weight: 600;
@@ -104,7 +113,9 @@ a:focus {
   z-index: 99;
   width: 100%;
   border-bottom-color: transparent;
-  box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+     -moz-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
+          box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.3);
 }
 .page { overflow: hidden }
 .page .content { padding: 60px 0 }
@@ -165,7 +176,10 @@ a:focus {
 }
 #portfolio .items li a img {
   width: 100%;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+     -moz-transition: all 0.3s ease-in-out;
+       -o-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
 }
 #portfolio .items li a .overlay {
   position: absolute;
@@ -175,7 +189,10 @@ a:focus {
   height: 100%;
   background-color: #000;
   background-color: rgba(0,0,0,0.6);
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+         transition: all 0.3s ease-in-out;
   opacity: 0;
 }
 #portfolio .items li a .overlay span {
@@ -188,6 +205,9 @@ a:focus {
 #portfolio .items li a:hover .overlay { opacity: 1 }
 #portfolio .items li a:hover img {
   -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+       -o-transform: scale(1.1);
           transform: scale(1.1);
 }
 #clients {
@@ -209,8 +229,13 @@ a:focus {
   width: 9px;
   height: 9px;
   border-color: #a6a6a6;
-  border-radius: 2px;
-  transition: all 0.25s linear;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+  -webkit-transition: all 0.25s linear;
+     -moz-transition: all 0.25s linear;
+       -o-transition: all 0.25s linear;
+          transition: all 0.25s linear;
 }
 #testimonials .carousel-indicators li:hover,
 #testimonials .carousel-indicators li:focus { border-color: #fff }
@@ -243,11 +268,18 @@ a:focus {
   overflow: hidden
 }     
 #about .teammate .profile-photo img {
-  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+     -moz-transition: all .4s ease;
+      -ms-transition: all .4s ease;
+       -o-transition: all .4s ease;
+          transition: all .4s ease;
 }
 #about .teammate:hover .profile-photo img,
 #about .teammate:focus .profile-photo img {
   -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+       -o-transform: scale(1.1);
           transform: scale(1.1);
 }
 #about .teammate .bio .border {

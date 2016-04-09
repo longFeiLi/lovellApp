@@ -41,7 +41,7 @@ var App=angular
   });
 
 App.config(['$locationProvider', function($locationProvider) {  
-  $locationProvider.html5Mode(true);  
+  // $locationProvider.html5Mode(true);  
 }]);
 
 

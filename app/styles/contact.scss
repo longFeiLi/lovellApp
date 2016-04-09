@@ -2,11 +2,48 @@
 .container .row{
 	margin-top: 20px;
 }
-.container.head-navbar{
-	padding: 0px;
-	// margin:0px 50px;
-	// margin:0px 220px;  需要在高显示器上展示mediaQuery
+/**
+ *  首页导航
+ */
+
+
+/**
+ * 首页
+ * 
+ */
+#home {
+  padding: 0;
+  color: #fff;
+  background-image: url(/images/cover/home.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  h1 {
+	  margin-top: 0;
+	  margin-bottom: 20px;
+	  font-size: 60px;
+  }
+  a { 
+  	margin: 0 5px 
+  }
+  h3 {
+	  margin-top: 20px;
+	  margin-bottom: 0;
+	}
 }
+.page{
+	overflow: hidden;
+	.content.cover{ 
+			padding: 240px 0;
+	}
+	.heading h2{
+		margin-top: 0;
+        margin-bottom: 20px;
+	}
+}
+
+
+
 
 /**
  * 左侧工具栏样式
