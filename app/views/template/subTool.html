@@ -1,4 +1,4 @@
-<div class="col-md-3 col-sm-4">
+<div class="col-md-4 col-sm-4" style="min-height: 400px;margin: 20px 0px;">
 	<div class="panel-group docs-nav">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -9,13 +9,13 @@
 			<div class="panel-body">
 				<ul class="nav">
 					<li>
-						<a ui-sref="main" ng-class="{'selected':isSelected == '/contact' }" >{{isSelecte}}echarts</a>
+						<a ui-sref="contact" ng-class="{'selected':isSelected == '/contact' }" >{{isSelecte}}echarts</a>
 					</li>
 					<li>
-						<a ui-sref="main">ng-Grid</a>
+						<a ui-sref="gridlist" ng-class="{'selected':isSelected == '/gridlist' }" >Grid</a>
 					</li>
 					<li class="active">
-						<a href="/docs/page-properties">node</a>
+						<a ui-sref="chartsmap" ng-class="{'selected':isSelected == '/chartsmap' }" >深圳地图</a>
 					</li>
 					<li>
 						<a href="/docs/content-regions">Angular.js</a>

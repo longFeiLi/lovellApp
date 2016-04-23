@@ -14,7 +14,14 @@ var App=angular
     'ngRoute',
     'ui.router',
     'ngTouch',
-    'longll.controllers'
+    'restangular',
+    'ui.grid',
+    'ui.grid.edit',
+    'ui.grid.cellNav',
+    'ui.grid.pagination',
+    'datatables',
+    'longll.controllers',
+    'longll.services'
   ]);
 
   App.config(function ($stateProvider,$urlRouterProvider) {
@@ -36,7 +43,24 @@ var App=angular
              templateUrl: 'views/contact.html',
            }
          }
+       })
+      .state('gridlist', {
+         url: '/gridlist',
+         views: {
+           'view': {
+             templateUrl: 'views/gridlist.html',
+           }
+         }
+       })
+      .state('chartsmap', {
+         url: '/chartsmap',
+         views: {
+           'view': {
+             templateUrl: 'views/mapChartsz.html',
+           }
+         }
        });
+
     // $locationProvider.html5Mode(true);
   });
 

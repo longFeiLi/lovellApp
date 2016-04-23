@@ -6,7 +6,7 @@
 	'use strict';
 	angular.module('longll.controllers', [
 		'controller.chartsModule',
-		// 'controller.angularMode'
+		'controller.angularModule'
 	]).controller('mainController', mainController);
     
     mainController.$inject = ['$scope', '$location'];

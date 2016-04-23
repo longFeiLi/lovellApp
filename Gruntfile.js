@@ -18,6 +18,7 @@ module.exports = function (grunt) {
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn'
   });
+  grunt.loadNpmTasks('grunt-connect-proxy');
 
   // Configurable paths for the application
   var appConfig = {
@@ -70,27 +71,53 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
+        port: 9090,
         hostname: 'localhost',
         livereload: 35729
       },
+      proxies: [{
+        context: ['/api/'],
+        host: 'localhost',
+        port: 18000
+      }],
       livereload: {
         options: {
           open: true,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect().use(
-                '/app/styles',
-                connect.static('./app/styles')
-              ),
-              connect.static(appConfig.app)
-            ];
+          // middleware: function (connect) {
+          //   return [
+          //     connect.static('.tmp'),
+          //     connect().use(
+          //       '/bower_components',
+          //       connect.static('./bower_components')
+          //     ),
+          //     connect().use(
+          //       '/app/styles',
+          //       connect.static('./app/styles')
+          //     ),
+          //     connect.static(appConfig.app)
+          //   ];
+          // }
+           base: ['.tmp', '<%= yeoman.app %>'],
+           middleware: function(connect, options) {
+            if (!Array.isArray(options.base)) {
+              options.base = [options.base];
+            }
+            // 设置代理
+            var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
+
+            // 代理每个base目录中的静态文件
+            options.base.forEach(function(base) {
+              middlewares.push(connect.static(base));
+            });
+            middlewares.push(connect().use(
+              '/bower_components',
+              connect.static('./bower_components')
+            ));
+            // // 让目录可被浏览（即：允许枚举文件）
+            // var directory = options.directory || options.base[options.base.length - 1];
+            // middlewares.push(connect.directory(directory));
+            // console.log(middlewares);
+            return middlewares;
           }
         }
       },
@@ -436,6 +463,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
+      'configureProxies:connect',
       'connect:livereload',
       'watch'
     ]);
@@ -472,6 +500,13 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
+   // 'copy',                 //复制文件
+// 136     'concat',               //合并文件
+// 137     'imagemin',             //图片压缩
+// 138     'cssmin',               //CSS压缩
+// 139     'uglify',               //JS压缩
+// 140     'usemin',               //HTML处理
+// 141     'htmlmin'               //HTML压缩
 
   grunt.registerTask('default', [
     'newer:jshint',

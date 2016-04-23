@@ -1,0 +1,48 @@
+<div ng-controller="gridlistCtrl">
+	<leftool></leftool>
+	<div class="gridlist col-md-8">
+			<div class="box border pink">
+				<div class="box-title">
+					<h4> <i class="fa fa-table"></i>
+						电影院列表
+					</h4>
+					<div class="tools">
+						<a href="#box-config" data-toggle="modal" class="config"> <i class="fa fa-cog"></i>
+						</a>
+						<a href="javascript:;" class="reload">
+							<i class="fa fa-refresh"></i>
+						</a>
+						<a href="javascript:;" class="collapse">
+							<i class="fa fa-chevron-up"></i>
+						</a>
+						<a href="javascript:;" class="remove">
+							<i class="fa fa-times"></i>
+						</a>
+					</div>
+				</div>
+				<div class="box-body">
+					<table  datatable="ng" class="row-border hover ">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>名称</th>
+								<th>地址</th>
+								<th>电话</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in cinemaList" >
+								<td>{{$index + 1}}</td>
+								<td ng-click="ckName(item.mid)">{{ item.name }}</td>
+								<td>{{ item.address }}</td>
+								<td>{{ item.tel }}</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+		</div>
+		<div id="pieMovies" style="width:600px;height:400px;"> </div>
+		<div class="gridStyle grid"  ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav ui-grid-pagination ></div>
+	</div>
+</div>

@@ -5,10 +5,9 @@
  */
 angular.module('controller.chartsModule')
 	.controller('remarkEchartsCtrl', remarkEchartsCtrl);
-// remarkEchartsCtrl.$inject = ['$scope', 'RemarkService', 'comminService'];
+remarkEchartsCtrl.$inject = ['$scope','comminService'];
 
-function remarkEchartsCtrl($scope) {
-
+function remarkEchartsCtrl($scope,comminService) {
 	var mychart = echarts.init(document.getElementById("mychart"));
 	var option = {
 		title: {
@@ -95,6 +94,7 @@ function remarkEchartsCtrl($scope) {
 		}]
 	};
 	mychart.setOption(option);
+	comminService.query();
 	// RemarkService.chartAddRemark(mychart, 'mychart', 'keyLonfei');
 	// comminService.query();
 
