@@ -94,7 +94,7 @@ function remarkEchartsCtrl($scope,comminService) {
 		}]
 	};
 	mychart.setOption(option);
-	comminService.query();
+	// comminService.query();
 	// RemarkService.chartAddRemark(mychart, 'mychart', 'keyLonfei');
 	// comminService.query();
 

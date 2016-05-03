@@ -62,12 +62,15 @@ let getNuomiTitle = function(id) {
 					// console.log(results);
 					//插入到数据库
 					insertTable('cinema', results);
-				     // callback();
-			}
+					// callback();
+				}
 			});
 		},
 		function(callback) {
-			callback();
+			//抓取淘宝电影院列表
+		    //
+		    //	
+
 		}
 	], function(err, results) {
 		// conn.connect();
@@ -78,6 +81,11 @@ let getNuomiTitle = function(id) {
 
 };
 
+let taobaoTitle = function(){
+  //https://dianying.taobao.com/ajaxCinemaList.htm?page=2&regionName=&cinemaName=&pageSize=10&pageLength=14&sortType=0&n_s=new
+
+};
+
 
 /**
  * [insertCine 插入cine表数据 ]
@@ -85,13 +93,13 @@ let getNuomiTitle = function(id) {
  */
 function insertTable(table, oResult) {
 	for (var i = 0; i < oResult.length; i++) {
-		conn.query('INSERT INTO '+table+' SET ?',oResult[i], function(err) {
+		conn.query('INSERT INTO ' + table + ' SET ?', oResult[i], function(err) {
 			if (err) {
 				return conn.rollback(function() {
 					throw err;
 				});
 			}
-		});
+		})
 		// conn.end();
 	}
 }

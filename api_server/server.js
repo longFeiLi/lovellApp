@@ -19,11 +19,10 @@ let later = require('later');
 later.date.localTime();
 
 //am  pm 
-var sched = later.parse.text('at 3:54pm every'),
+var sched = later.parse.text('at 9:15am every'),
   t = later.setTimeout(function() {
     test();
   }, sched);
-
 
 
 /*
@@ -35,6 +34,7 @@ function test() {
   console.log('我是每天10点来一遍哦');
   //把数据删掉
   //、、写方法
+  delcine();
   getCine();
 }
 
@@ -66,7 +66,6 @@ http.listen(18000, function() {
 
 
 var conn;
-
 function handleError() {
   conn = mysql.createConnection(dbConfig);
   //连接错误，2秒重试
@@ -106,6 +105,26 @@ function a(result) {
     film.getfilmPrint(result[i].mid);
   }
 }
+
+function delcine(){
+    handleError();
+    conn.query('DELETE FROM cine', function (err, result) {
+      if (err) throw err;
+
+      console.log('deleted ' + result.affectedRows + ' rows');
+    });
+    conn.query('DELETE FROM screenings', function (err, result) {
+      if (err) throw err;
+      console.log('deleted ' + result.affectedRows + ' rows');
+    });
+
+}
+
+
+
+
+
+
 //获取所有电影院场次
 
 

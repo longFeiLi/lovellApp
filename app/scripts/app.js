@@ -59,6 +59,14 @@ var App=angular
              templateUrl: 'views/mapChartsz.html',
            }
          }
+       })
+       .state('work', {
+         url: '/work',
+         views: {
+           'view': {
+             templateUrl: 'views/work.html',
+           }
+         }
        });
 
     // $locationProvider.html5Mode(true);
